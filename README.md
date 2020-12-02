@@ -1,4 +1,4 @@
-mp-universal-analytics
+mp-universal-analytics 微信小程序埋点
 =======
 
 A JavaScript package for Google's [Universal Analytics](http://support.google.com/analytics/bin/answer.py?hl=en&hlrm=de&answer=2790010) tracking via the [Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/).

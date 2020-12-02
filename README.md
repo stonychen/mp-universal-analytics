@@ -1,11 +1,13 @@
-universal-analytics
+mp-universal-analytics
 =======
 
-A node module for Google's [Universal Analytics](http://support.google.com/analytics/bin/answer.py?hl=en&hlrm=de&answer=2790010) tracking via the [Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/).
+A JavaScript package for Google's [Universal Analytics](http://support.google.com/analytics/bin/answer.py?hl=en&hlrm=de&answer=2790010) tracking via the [Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/).
 
-This module allows tracking data (or rather, users) from within a Node.js application. Tracking is initiated on the server side and, if required, does not require any more tracking in the browser.
+This module allows tracking data (or rather, users) from within WeChat Mini Program(WMP) application. Tracking is initiated on the WMP side.
 
-[![npm version](https://badge.fury.io/js/universal-analytics.svg)](https://www.npmjs.com/package/universal-analytics) [![Build Status](https://travis-ci.org/peaksandpies/universal-analytics.png?branch=master)](https://travis-ci.org/peaksandpies/universal-analytics)
+First of all, this repo was forked from [universal-analytics](https://github.com/peaksandpies/universal-analytics).
+
+If you are trying to learn more about this repo, that means you have already learnt a lot about Mini Program. Mini Program is an embedded application which is run on WeChat. For more information about Mini Program, refer to [WeChat Mini Program](https://developers.weixin.qq.com/miniprogram/en/dev/#Apply-for-an-account)
 
 
 # Table of Contents
@@ -31,17 +33,17 @@ This module allows tracking data (or rather, users) from within a Node.js applic
 
 # Getting started
 
-`universal-analytics` is installed and included like any other node module:
+`mp-universal-analytics` is installed and included like any other node module:
 
 ```
-$ npm install universal-analytics
+$ npm install mp-universal-analytics
 ```
 
 ```javascript
-var ua = require('universal-analytics');
+var ua = require('mp-universal-analytics');
 
 // Or with ES6 import
-import ua from 'universal-analytics'
+import ua from 'mp-universal-analytics'
 ```
 
 Initialization expects at least your Google Analytics account ID:
@@ -50,13 +52,13 @@ Initialization expects at least your Google Analytics account ID:
 var visitor = ua('UA-XXXX-XX');
 ```
 
-This will create a `universal-analytics` Visitor instance that you can use and keep around to track a specific client (Not to be confused with the Google Analytics User ID, see [Setting persistent parameters](#setting-persistent-parameters) for more information on that). Since no client ID was specified in the constructor's arguments, a random UUID is generated. In case you have a client ID at hand, you can use that to create the visitor:
+This will create a `mp-universal-analytics` Visitor instance that you can use and keep around to track a specific client (Not to be confused with the Google Analytics User ID, see [Setting persistent parameters](#setting-persistent-parameters) for more information on that). Since no client ID was specified in the constructor's arguments, a random UUID is generated. In case you have a client ID at hand, you can use that to create the visitor:
 
 ```javascript
 var visitor = ua('UA-XXXX-XX', '6a14abda-6b12-4578-bf66-43c754eaeda9');
 ```
 
-Starting with Universal Analytics, a UUID v4 is the preferred client ID format. It is therefor necessary to provide a UUID of such type to `universal-analytics`. However you can force custom client ID, passing `strictCidFormat: false` in the options:
+Starting with Universal Analytics, a UUID v4 is the preferred client ID format. It is therefor necessary to provide a UUID of such type to `mp-universal-analytics`. However you can force custom client ID, passing `strictCidFormat: false` in the options:
 
 ```javascript
 var visitor = ua('UA-XXXX-XX', 'CUSTOM_CLIENTID_1', {strictCidFormat: false});
@@ -125,7 +127,7 @@ visitor.pageview({dp: "/", dt: "Welcome", dh: "http://peaksandpies.com"}).send()
 
 This code has the exact same effect as the one above. `dp`, `dt`, and `dh` (as in 'document path', 'document title' and 'document hostname') are the attribute names used by the Measurement Protocol.
 
-It's mandatory to specify either the page path (`dp`) or document location (`dl`). Google Analytics can not track a pageview without a path. To avoid such erroneous requests, `universal-analytics` will deny `pageview()` tracking if the required parameters are omitted.
+It's mandatory to specify either the page path (`dp`) or document location (`dl`). Google Analytics can not track a pageview without a path. To avoid such erroneous requests, `mp-universal-analytics` will deny `pageview()` tracking if the required parameters are omitted.
 
 ```javascript
 var pagePath = null;
@@ -185,7 +187,7 @@ See also: [List of acceptable params](AcceptableParams.md).
 ## Event tracking
 
 
-Tracking events with `universal-analytics` works like pageview tracking, only you have to provide different arguments:
+Tracking events with `mp-universal-analytics` works like pageview tracking, only you have to provide different arguments:
 
 ```javascript
 visitor.event("Event Category", "Event Action").send()
@@ -213,7 +215,7 @@ visitor.event("Event Category", "Event Action", "…and a label", 42, {p: "/cont
 })
 ```
 
-*Notice:* The page path attribute for the event is called `p` which differs from the `dp` attribute used in the pageview tracking example. `universal-analytics` is smart enough to use the `dp` attribute should you provide it instead of `p`.
+*Notice:* The page path attribute for the event is called `p` which differs from the `dp` attribute used in the pageview tracking example. `mp-universal-analytics` is smart enough to use the `dp` attribute should you provide it instead of `p`.
 
 In case this argument list is getting a little long, `event()` also accepts a params object like `pageview()`:
 
@@ -229,7 +231,7 @@ var params = {
 visitor.event(params).send();
 ```
 
-The category (`ec`) and the action (`ea`) are mandatory. Google Analytics will not track an event without them. To avoid such erroneous requests, universal-analytics will deny `event()` tracking if either attribute is omitted.
+The category (`ec`) and the action (`ea`) are mandatory. Google Analytics will not track an event without them. To avoid such erroneous requests, mp-universal-analytics will deny `event()` tracking if either attribute is omitted.
 
 ```javascript
 var action = null;
@@ -285,7 +287,7 @@ In case an additional item has to be added later on or daisy-chaining is not ava
 
 visitor.item({ip: 100, iq: 1, ic: "item-41325", in: "Item 41325", iv: "XL", ti: "trans-12345"}).send()
 
-The transaction ID (`ti`) is mandatory for both the transaction and the item. Google Analytics will not track e-commerce data without it. To avoid such erroneous requests, universal-analytics will deny `transaction()` and `item()` tracking if it is omitted.
+The transaction ID (`ti`) is mandatory for both the transaction and the item. Google Analytics will not track e-commerce data without it. To avoid such erroneous requests, mp-universal-analytics will deny `transaction()` and `item()` tracking if it is omitted.
 
 ```javascript
 var ti = null;
@@ -473,7 +475,7 @@ visitor.pageview("/").pageview("/contact").send()
 
 Granted, the chance of this example actually happening in practice might be rather low.
 
-However, `universal-analytics` is smart when it comes to daisy-chaining certain calls. In many cases, a `pageview()` call is instantly followed by an `event()` call to track some additional information about the current page. `universal-analytics` makes creating the connection between the two easy:
+However, `mp-universal-analytics` is smart when it comes to daisy-chaining certain calls. In many cases, a `pageview()` call is instantly followed by an `event()` call to track some additional information about the current page. `mp-universal-analytics` makes creating the connection between the two easy:
 
 ```javascript
 visitor.pageview("/landing-page-1").event("Testing", "Button color", "Blue").send()
@@ -487,7 +489,7 @@ visitor.event("Testing", "Button color", "Blue", {p: "/landing-page-1"}).send()
 
 Daisy-chaining is context-aware and in this case placing the `event()` call right after the `pageview()` call results in the event being associated with the page path tracking in the `pageview()` call. Even though the attributes (`dp` and `p`)  are different internally.
 
-It also works when using a callback since the `this` inside the callback will be the `universal-analytics` Visitor instance:
+It also works when using a callback since the `this` inside the callback will be the `mp-universal-analytics` Visitor instance:
 
 ```javascript
 visitor.pageview("/landing-page-1", function (err) {
@@ -541,10 +543,10 @@ Then create a new view in Google Analytics of type 'Application'. You will then 
 
 # Session-based identification
 
-In order to make session-based apps easier to work with, `universal-analytics` also provides a middleware that works in an Expressjs-style fashion. It will try to detect a client ID based on the `_ga` cookie used by the analytics.js client-side tracking. Additionally it will store the detected client ID in the current session to recognize the visitor later.
+In order to make session-based apps easier to work with, `mp-universal-analytics` also provides a middleware that works in an Expressjs-style fashion. It will try to detect a client ID based on the `_ga` cookie used by the analytics.js client-side tracking. Additionally it will store the detected client ID in the current session to recognize the visitor later.
 
 ```javascript
-var ua = require("universal-analytics");
+var ua = require("mp-universal-analytics");
 var express = require("express");
 
 var app = express()
@@ -562,16 +564,16 @@ var visitor = ua.createFromSession(socket.handshake.session);
 
 # Debug mode
 
-`universal-analytics` is using the [`debug`](https://www.npmjs.com/package/debug) library. It can be instructed to output information during tracking by setting the `DEBUG` environment variable:
+`mp-universal-analytics` is using the [`debug`](https://www.npmjs.com/package/debug) library. It can be instructed to output information during tracking by setting the `DEBUG` environment variable:
 
 ```
-DEBUG=universal-analytics
+DEBUG=mp-universal-analytics
 ```
 
 
 # Request Options
 
-In order to add additional options to the request a `requestOptions` hash can be provided as part of the constructor options. `unviversal-analytics` uses the [`request`](https://www.npmjs.com/package/request) library. Therefor [any option available for that library](https://www.npmjs.com/package/request#requestoptions-callback) can be provided via the `requestOptions`.
+Considering that WMP provides a special way to send a ajax request. We will have to use the Ajax request which provided by WeChat Mini Program official.
 
 ```javascript
 var visitor = ua('UA-XXXX-XX', {
@@ -596,7 +598,7 @@ The tracking methods have shortcuts:
 
 The tests are written with [mocha](https://github.com/visionmedia/mocha) using [should](https://github.com/visionmedia/should.js) and [Sinon.JS](https://github.com/cjohansen/Sinon.JS).
 
-Run them by executing the following commands in the `universal-analytics` directory:
+Run them by executing the following commands in the `mp-universal-analytics` directory:
 
 ```
 $ npm install
@@ -607,7 +609,7 @@ $ make test
 
 (The MIT License)
 
-Copyright (c) 2017 Peaks & Pies GmbH &lt;hello@peaksandpies.com&gt;
+Copyright (c) 2017 Peaks & Pies GmbH &lt;hello@peaksandpies.com&gt; & Stony Chen&lt;stonychen@hotmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

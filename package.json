@@ -1,7 +1,7 @@
 {
   "name": "mp-universal-analytics",
   "version": "0.5.0",
-  "description": "A package module for Google's Universal Analytics tracking within WeChat Mini Program",
+  "description": "A package module for Google's Universal Analytics tracking within WeChat Mini Program. 微信小程序埋点",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "keywords": [
@@ -9,17 +9,18 @@
     "analytics",
     "universal",
     "tracking",
-    "universal Analytics",,
-    "Google Analytics"
+    "universal Analytics",
+    "Google Analytics",
     "universal-analytics",
     "WeChat",
     "WeChat Mini Program",
     "GA",
     "UA",
-    "Measurement protocal",
+    "Measurement protocol",
     "微信",
     "小程序",
-    "微信小程序"
+    "微信小程序",
+    "小程序埋点"
   ],
   "scripts": {
     "dev": "tsc && node dist/index.js",

@@ -1,8 +1,8 @@
 
 // TODO remove request
 // import request = require("request")
-import uuid = require("uuid")
-import querystring = require("querystring")
+import uuid from "uuid"
+import querystring from "querystring"
 
 import {
   isUuid,

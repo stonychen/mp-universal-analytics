@@ -1,12 +1,33 @@
-declare class XmlNode {
-    tag: string;
-    name: string;
-    namespace: string;
-    attrs: any;
-    selfCloseNode: boolean;
-    text: string;
-    path: string;
-    children: Array<XmlNode>;
+declare class Visitor {
+    private _queue;
+    private options;
+    private _context;
+    private _persistentParams;
+    private cid;
+    private tid;
+    private uid;
+    constructor(tid?: any, cid?: any, options?: any, context?: any, persistentParams?: any);
+    debug(d: boolean): this;
+    reset(): this;
+    set(key: string, value: any): void;
+    pageview(path: string | null, hostname: string | null, title: string | null, params: any, fn: Function): Visitor;
+    screenview(screenName: string | null, appName: string | null, appVersion: string | null, appId: string | null, appInstallerId: string | null, params: any, fn: Function): Visitor;
+    event(category: any, action: any, label: any, value: any, params: any, fn: Function): Visitor;
+    transaction(transaction: any, revenue: any, shipping: any, tax: any, affiliation: any, params: any, fn: Function): Visitor;
+    item(price: any, quantity: any, sku: any, name: any, variation: any, params: any, fn: Function): Visitor;
+    exception(description: any, fatal: any, params: any, fn: Function): Visitor;
+    timing(category: any, variable: any, time: any, label: any, params: any, fn: Function): Visitor;
+    send(fn: Function): void;
+    _enqueue(type: any, params: any, fn: Function): this;
+    _handleError(message: string, fn: Function): this;
+    _determineCid(...args: any[]): any;
+    _checkParameters(params: any): void;
+    _translateParams(params: any): any;
+    _tidyParameters(params: any): any;
+    _withContext(context: any): Visitor;
+    pv: (path: string | null, hostname: string | null, title: string | null, params: any, fn: Function) => Visitor;
+    e: (category: any, action: any, label: any, value: any, params: any, fn: Function) => Visitor;
+    t: (transaction: any, revenue: any, shipping: any, tax: any, affiliation: any, params: any, fn: Function) => Visitor;
+    i: (price: any, quantity: any, sku: any, name: any, variation: any, params: any, fn: Function) => Visitor;
 }
-declare function parseXml(xml: string, options?: any): XmlNode | undefined;
-export { XmlNode, parseXml };
+export default Visitor;

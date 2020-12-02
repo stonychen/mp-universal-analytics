@@ -1,5 +1,6 @@
 mp-universal-analytics 微信小程序埋点
 =======
+NOTE: CURRENT VERSION IS PRE-RELEASE VERSION. WE ARE PREPARING FOR THE FIRST RELEASE.
 
 A JavaScript package for Google's [Universal Analytics](http://support.google.com/analytics/bin/answer.py?hl=en&hlrm=de&answer=2790010) tracking via the [Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/).
 
@@ -8,6 +9,7 @@ This module allows tracking data (or rather, users) from within WeChat Mini Prog
 Mini Program is an embedded application which is run on WeChat. For more information about Mini Program, refer to [WeChat Mini Program](https://developers.weixin.qq.com/miniprogram/en/dev/#Apply-for-an-account)
 
 Special thanks for the open source [universal-analytics](https://github.com/peaksandpies/universal-analytics).
+
 
 # Table of Contents
 

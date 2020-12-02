@@ -1,13 +1,14 @@
 mp-universal-analytics
 =======
 
-A JavaScript package, which was forked from [universal-analytics](https://github.com/peaksandpies/universal-analytics), for Google's [Universal Analytics](http://support.google.com/analytics/bin/answer.py?hl=en&hlrm=de&answer=2790010) tracking via the [Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/).
+A JavaScript package for Google's [Universal Analytics](http://support.google.com/analytics/bin/answer.py?hl=en&hlrm=de&answer=2790010) tracking via the [Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/).
 
 This module allows tracking data (or rather, users) from within WeChat Mini Program(WMP) application. Tracking is initiated on the WMP side.
 
 Mini Program is an embedded application which is run on WeChat. For more information about Mini Program, refer to [WeChat Mini Program](https://developers.weixin.qq.com/miniprogram/en/dev/#Apply-for-an-account)
 
-
+Special thanks for the open source [universal-analytics](https://github.com/peaksandpies/universal-analytics).
+s
 # Table of Contents
 
 - [Getting started](#getting-started)

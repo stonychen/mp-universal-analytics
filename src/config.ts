@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
 	protocolVersion: "1",
 	hostname: "https://www.google-analytics.com",
 	path: "/collect",
@@ -169,3 +169,5 @@ module.exports = {
 		"experimentVariant": "xvar"
 	}
 };
+
+export default config

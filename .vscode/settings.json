@@ -1,0 +1,112 @@
+{
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.suggest.insertMode": "replace",
+  "editor.formatOnSave": true,
+  "editor.find.seedSearchStringFromSelection": false,
+  "files.eol": "\n",
+  "files.exclude": {},
+  "files.associations": {
+    "*.ts": [
+      "typescript"
+    ],
+    "*.tsx": [
+      "typescriptreact"
+    ],
+    "*.js": [
+      "javascript"
+    ],
+    "*.jsx": [
+      "javascriptreact"
+    ]
+  },
+  "files.insertFinalNewline": true,
+  "workbench.colorCustomizations": {},
+  "workbench.view.alwaysShowHeaderActions": true,
+  "gulp.autoDetect": "off",
+  "auto-close-tag.activationOnLanguage": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "markdown",
+    "HTML (Eex)"
+  ],
+  "auto-close-tag.excludedTags": [
+    "router-view",
+    "area",
+    "br",
+    "hr",
+    "img",
+    "input",
+    "link",
+    "meta"
+  ],
+  "cSpell.allowCompoundWords": true,
+  "cSpell.words": [
+    "Avenir",
+    "Cascader",
+    "Stringifyable",
+    "antd",
+    "antdv",
+    "devtool",
+    "echarts",
+    "eqeqeq",
+    "esnext",
+    "jspdf",
+    "ntsc",
+    "ntypescript",
+    "orgs",
+    "styl"
+  ],
+  "search.exclude": {
+    "**/node_modules": false
+  },
+  // eslint
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "autoimport.showNotifications": true,
+  // bookmarks
+  "bookmarks.navigateThroughAllFiles": true,
+  "bookmarks.saveBookmarksInProject": true,
+  // hightlight
+  "todohighlight.isEnable": true,
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.keywords": [
+    "DEBUG:",
+    "REVIEW:",
+    {
+      "text": "NOTE:",
+      "color": "red",
+      "backgroundColor": "green",
+      "overviewRulerColor": "grey"
+    },
+    {
+      "text": "TODO:",
+      "color": "#000",
+      "backgroundColor": "yellow"
+    }
+  ],
+  // typescript plugin
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+  "typescript.format.semicolons": "remove",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  "typescript.suggest.autoImports": false,
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.format.semicolons": "remove",
+  "javascript.autoClosingTags": true,
+  "javascript.format.enable": false,
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "javascript.preferences.quoteStyle": "single"
+}

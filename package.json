@@ -1,30 +1,53 @@
 {
   "name": "mp-universal-analytics",
-  "version": "0.4.23",
-  "description": "A package module for Google's Universal Analytics tracking with WeChat Mini Program",
-  "main": "index.js",
+  "version": "0.5.0",
+  "description": "A package module for Google's Universal Analytics tracking within WeChat Mini Program",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "keywords": [
+    "google",
+    "analytics",
+    "universal",
+    "tracking",
+    "universal Analytics",,
+    "Google Analytics"
+    "universal-analytics",
+    "WeChat",
+    "WeChat Mini Program",
+    "GA",
+    "UA",
+    "Measurement protocal",
+    "微信",
+    "小程序",
+    "微信小程序"
+  ],
   "scripts": {
-    "test": "make test"
+    "dev": "tsc && node dist/index.js",
+    "build": "tsc -b",
+    "lint": "eslint src/**"
+  },
+  "dependencies": {
+    "uuid": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@types/node": "^14.14.10",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.8.0",
+    "eslint": "^7.14.0",
+    "typescript": "^3.9.7",
+    "should": "*",
+    "sinon": "^1.17.7",
+    "mocha": "*"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stonychen/mp-universal-analytics.git"
   },
-  "keywords": [
-    "google",
-    "analytics",
-    "universal",
-    "tracking"
-  ],
-  "dependencies": {
-    "debug": "^4.1.1",
-    "uuid": "^3.0.0"
-  },
-  "devDependencies": {
-    "should": "*",
-    "sinon": "^1.17.7",
-    "mocha": "*"
-  },
   "author": "Jörg Tillmann <joerg@peaksandpies.com>, Stony Chen<stonychen@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stonychen/mp-universal-analytics/issues"
+  },
+  "homepage": "https://github.com/stonychen/mp-universal-analytics#readme"
 }

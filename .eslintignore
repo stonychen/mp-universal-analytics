@@ -1,0 +1,6 @@
+**/dist/*
+.vscode/
+# src/**/*.d.ts
+# src/**/*.d.tsx
+# src/**/*.ts
+# src/**/*.tsx

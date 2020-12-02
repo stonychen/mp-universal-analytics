@@ -1,0 +1,11 @@
+node_modules
+.browserslistrc
+.github
+.vscode
+.editorconfig
+.eslintignore
+.eslintrc.js
+.gitignore
+.npmignore
+.gitattributes
+tsconfig.json
